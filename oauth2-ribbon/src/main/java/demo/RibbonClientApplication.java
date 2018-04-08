@@ -9,6 +9,8 @@ import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RibbonClient("foo")
@@ -24,5 +26,14 @@ public class RibbonClientApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RibbonClientApplication.class, args);
+	}
+	
+	@RestController
+	@RequestMapping("/hello")
+	public class TestController{
+	@RequestMapping("/hello")
+	  public String hello() {
+	    return "hello";
+	  }
 	}
 }
